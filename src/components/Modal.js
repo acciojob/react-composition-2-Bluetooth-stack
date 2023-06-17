@@ -1,14 +1,19 @@
 import React from "react";
 
-const Modal = ({show})=>{
 
-    function toggle(){
+
+const Modal = ({ show }) => {
+
+    function toggle() {
         show(false);
     }
-    return(
+
+    return (
         <div className="model-overlay">
-            <button className="model-close" onClick={toggle}>Close</button>
-            <p>This is the content of the modal.</p>
+            <div className="modal">
+                <button className="model-close" onClick={toggle}>Close</button>
+                <p>This is the content of the modal.</p>
+            </div>
         </div>
     )
 }
