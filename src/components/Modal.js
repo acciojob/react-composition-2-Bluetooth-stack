@@ -2,16 +2,16 @@ import React from "react";
 
 
 
-const Modal = ({ show }) => {
+const Modal = ({show}) => {
 
     function toggle() {
         show(false);
     }
 
     return (
-        <div className="model-overlay">
+        <div className="modal-overlay">
             <div className="modal">
-                <button className="model-close" onClick={toggle}>Close</button>
+                <button className="modal-close" onClick={toggle}>Close</button>
                 <p>This is the content of the modal.</p>
             </div>
         </div>

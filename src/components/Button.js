@@ -13,7 +13,7 @@ const Button = () => {
             <button onClick={showChange}>Show Modal</button>
             {
                 show &&
-                <Modal show={setShow}></Modal>
+                <Modal show={setShow} togleprp={show}></Modal>
             }
         </div>
     )
