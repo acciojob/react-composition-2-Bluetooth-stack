@@ -3,19 +3,8 @@ import React, { useEffect, useRef } from "react";
 
 
 const Modal = ({ show }) => {
-    const ref = useRef()
-
-    useEffect(() => {
-        const checkIfClickedOutside = e => {
-            if (ref.current && !ref.current.contains(e.target)) {
-                show();
-            }
-        }
-        document.addEventListener("click", show)
-        return () => {
-            document.removeEventListener("click", checkIfClickedOutside)
-        }
-    }, [show])
+    
+    document.addEventListener("click", show)
 
     return (
         <div className="modal-overlay">
