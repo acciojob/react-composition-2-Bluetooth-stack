@@ -5,15 +5,15 @@ const Button = () => {
     const [show, setShow] = useState(false);
 
     function showChange() {
-        setShow(true);
+        setShow(false);
     }
 
     return (
         <div>
-            <button onClick={showChange}>Show Modal</button>
+            <button onClick={() => {setShow(true)}}>Show Modal</button>
             {
                 show &&
-                <Modal show={setShow} togleprp={show}></Modal>
+                <Modal show={() => { showChange() }}></Modal>
             }
         </div>
     )

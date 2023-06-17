@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 
 
-const Modal = ({show}) => {
+const Modal = ({ show }) => {
+    const ref = useRef()
 
-    function toggle() {
-        show(false);
-    }
+    useEffect(() => {
+        const checkIfClickedOutside = e => {
+            if (ref.current && !ref.current.contains(e.target)) {
+                show();
+            }
+        }
+        document.addEventListener("click", show)
+        return () => {
+            document.removeEventListener("click", checkIfClickedOutside)
+        }
+    }, [show])
 
     return (
         <div className="modal-overlay">
             <div className="modal">
-                <button className="modal-close" onClick={toggle}>Close</button>
+                <button className="modal-close" onClick={() => { show() }}>Close</button>
                 <p>This is the content of the modal.</p>
             </div>
         </div>
